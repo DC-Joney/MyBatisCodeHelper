@@ -37,7 +37,11 @@ public class DatabaseComponenent {
 
     public static String formatColumn(String column) {
         if (currentDatabase().equals(DataBaseConstants.MYSQL)) {
-            return "`" + column + "`";
+            if(myBatisCodeHelperApplicationComponent.getState().getDefaultProfile().getMysqlUseWithDash()) {
+                return "`" + column + "`";
+            } else{
+                return column;
+            }
         } else {
             return column;
         }

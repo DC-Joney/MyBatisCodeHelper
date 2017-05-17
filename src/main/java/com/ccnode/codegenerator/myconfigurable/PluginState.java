@@ -31,6 +31,7 @@ public class PluginState extends DomainObject implements Cloneable {
             profile = new Profile();
             profile.setDatabase(DataBaseConstants.MYSQL);
             profile.setAddMapperAnnotation(true);
+            profile.setMysqlUseWithDash(false);
             return profile;
         }
     }

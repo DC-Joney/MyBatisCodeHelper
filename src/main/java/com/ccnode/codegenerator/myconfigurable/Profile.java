@@ -12,6 +12,8 @@ public class Profile extends DomainObject {
 
     private Boolean useGeneratedKeys = true;
 
+    private Boolean mysqlUseWithDash = false;
+
     public Boolean getUseGeneratedKeys() {
         return useGeneratedKeys;
     }
@@ -34,5 +36,14 @@ public class Profile extends DomainObject {
 
     public void setAddMapperAnnotation(Boolean addMapperAnnotation) {
         this.addMapperAnnotation = addMapperAnnotation;
+    }
+
+
+    public Boolean getMysqlUseWithDash() {
+        return mysqlUseWithDash;
+    }
+
+    public void setMysqlUseWithDash(Boolean mysqlUseWithDash) {
+        this.mysqlUseWithDash = mysqlUseWithDash;
     }
 }

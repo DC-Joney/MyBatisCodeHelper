@@ -19,6 +19,8 @@ public class SettingDialog {
 
     private JCheckBox useGeneratedKeysCheckBox;
 
+    private JCheckBox mysqlUsingWithDashCheckBox;
+
     private PluginState settings;
 
     public SettingDialog(PluginState state) {
@@ -65,6 +67,11 @@ public class SettingDialog {
 
         bag.gridy = 3;
         bag.gridx = 0;
+        mysqlUsingWithDashCheckBox = new JCheckBox("mysql use with `", profile.getMysqlUseWithDash());
+        rootComponent.add(mysqlUsingWithDashCheckBox, bag);
+
+        bag.gridy = 3;
+        bag.gridx = 0;
         bag.weighty = 10000;
         rootComponent.add(new JPanel(), bag);
     }
@@ -81,6 +88,8 @@ public class SettingDialog {
     public void setData(Profile data) {
         databaseCombox.setSelectedItem(data.getDatabase());
         addMapperAnnotationCheckBox.setSelected(data.getAddMapperAnnotation());
+        useGeneratedKeysCheckBox.setSelected(data.getUseGeneratedKeys());
+        mysqlUsingWithDashCheckBox.setSelected(data.getMysqlUseWithDash());
     }
 
     public boolean isSettingModified(PluginState state) {
@@ -97,5 +106,6 @@ public class SettingDialog {
         defaultProfile.setAddMapperAnnotation(addMapperAnnotationCheckBox.isSelected());
         defaultProfile.setDatabase((String) databaseCombox.getSelectedItem());
         defaultProfile.setUseGeneratedKeys(useGeneratedKeysCheckBox.isSelected());
+        defaultProfile.setMysqlUseWithDash(mysqlUsingWithDashCheckBox.isSelected());
     }
 }
